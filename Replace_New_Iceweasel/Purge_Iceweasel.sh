@@ -22,7 +22,7 @@ User_Check ()
 {
     USER_OK=$(cat /etc/passwd | cut -d ":" -f1 | grep "chromeuser")
     if [ "" == "$USER_OK" ]; then
-        useradd chromeuser
+        useradd -m chromeuser
         echo -e "\t\tADDED"
     else echo -e "\t\tOK"
     fi
