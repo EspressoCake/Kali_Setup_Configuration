@@ -41,7 +41,9 @@ Browser_Detection ()
 Bash_Update ()
 {
     if [[ "" == "$(grep "chrome" /root/.bashrc)" ]]; then
-        echo "alias chrome=\"xhost + > /dev/null && su chromeuser -c chromium > /dev/null 2>&1\"" >> /root/.bashrc
+        xhost +SI:localuser:chromeuser > /dev/null 2&>1
+        xhost - > /dev/null 2&>1
+        echo "alias chrome=\"su chromeuser -c chromium > /dev/null 2>&1\"" >> /root/.bashrc
     fi
 }
 
